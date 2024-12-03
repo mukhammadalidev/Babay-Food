@@ -15,9 +15,10 @@ class BasketSerializer(serializers.ModelSerializer):
 
 
 class BasketItemSerializer(serializers.ModelSerializer):
-
     basket = serializers.PrimaryKeyRelatedField(queryset=Basket.objects.all())
     product = serializers.SlugRelatedField(queryset=Product.objects.all(), slug_field='name')
+
+    
 
     class Meta:
         model = BasketItem
