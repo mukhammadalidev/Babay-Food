@@ -29,7 +29,7 @@ class CustomUserManager(BaseUserManager):
         return self._create_user(phone, password, **extra_fields)
 
 
-
+import uuid
 
 # Create your models here.
 class CustomUser(AbstractUser):

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
     "corsheaders",
+    'channels',
 
 # local
     'users',
@@ -55,6 +56,16 @@ INSTALLED_APPS = [
     'payments',
 
 ]
+
+ASGI_APPLICATION = 'core.application'  # Loyihangiz nomini o'zgartiring
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6379)],  # Redis server manzili va porti
+        },
+    },
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
